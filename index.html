@@ -200,162 +200,146 @@ public class MainActivity extends AppCompatActivity {</br>
       3.</br>
 Signup Java:-</br>
 
-  package com.example.myapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.regex.Pattern;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    String re1 = "(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@$!]{8,}";
-    String re2 = "\\d{10}";
-    EditText un, pw, ph;
-    Button b;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        un = (EditText) findViewById(R.id.un);
-        pw = (EditText) findViewById(R.id.pw);
-        ph = (EditText) findViewById(R.id.ph);
-        b = (Button) findViewById(R.id.b);
-        b.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        String user = un.getText().toString();
-        String pass = pw.getText().toString();
-        String phone = ph.getText().toString();
-        if(!validate(re1, pass))
-            Toast.makeText(getBaseContext(), "Invalid password", Toast.LENGTH_LONG).show();
-        else if(!validate(re2, phone))
-            Toast.makeText(getBaseContext(), "Invalid phone no", Toast.LENGTH_LONG).show();
-        else {
-            Bundle bun = new Bundle();
-            bun.putString("user", user);
-            bun.putString("pass", pass);
-            bun.putString("phone", phone);
-            Toast.makeText(getBaseContext(), "Registration done", Toast.LENGTH_LONG).show();
-            Intent it = new Intent(this, Login.class);
-            it.putExtra("data", bun);
-            startActivity(it);
-        }
-    }
-    private static boolean validate(String re, String txt) {
-        return Pattern.compile(re).matcher(txt).matches();
-    }
+  package com.example.myapplication;</br>
+import androidx.appcompat.app.AppCompatActivity;</br>
+import android.content.Intent;</br>
+import android.os.Bundle;</br>
+import android.view.View;</br>
+import android.widget.Button;</br>
+import android.widget.EditText;</br>
+import android.widget.Toast;</br>
+import java.util.regex.Pattern;</br>
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {</br>
+    String re1 = "(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@$!]{8,}";</br>
+    String re2 = "\\d{10}";</br>
+    EditText un, pw, ph;</br>
+    Button b;</br>
+    @Override</br>
+    protected void onCreate(Bundle savedInstanceState) {</br>
+        super.onCreate(savedInstanceState);</br>
+        setContentView(R.layout.activity_main);</br>
+        un = (EditText) findViewById(R.id.un);</br>
+        pw = (EditText) findViewById(R.id.pw);</br>
+        ph = (EditText) findViewById(R.id.ph);</br>
+        b = (Button) findViewById(R.id.b);</br>
+        b.setOnClickListener(this);</br>
+    }</br>
+    @Override</br>
+    public void onClick(View v) {</br>
+        String user = un.getText().toString();</br>
+        String pass = pw.getText().toString();</br>
+        String phone = ph.getText().toString();</br>
+        if(!validate(re1, pass))</br>
+            Toast.makeText(getBaseContext(), "Invalid password", Toast.LENGTH_LONG).show();</br>
+        else if(!validate(re2, phone))</br>
+            Toast.makeText(getBaseContext(), "Invalid phone no", Toast.LENGTH_LONG).show();</br>
+        else {</br>
+            Bundle bun = new Bundle();</br>
+            bun.putString("user", user);</br>
+            bun.putString("pass", pass);</br>
+            bun.putString("phone", phone);</br>
+            Toast.makeText(getBaseContext(), "Registration done", Toast.LENGTH_LONG).show();</br>
+            Intent it = new Intent(this, Login.class);</br>
+            it.putExtra("data", bun);</br>
+            startActivity(it);</br>
+        }</br>
+    }</br>
+    private static boolean validate(String re, String txt) {</br>
+        return Pattern.compile(re).matcher(txt).matches();</br>
+    }</br>
 }</br>
 login</br>
-package com.example.myapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-public class Login extends AppCompatActivity implements View.OnClickListener {
-    int count = 0;
-    EditText un, pw, ph;
-    Button b;
-    String user1, user2, pass1, pass2, phone1, phone2;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        un = (EditText) findViewById(R.id.un);
-        pw = (EditText) findViewById(R.id.pw);
-        ph = (EditText) findViewById(R.id.ph);
-        b = (Button) findViewById(R.id.b);
-        b.setOnClickListener(this);
-        Bundle bun = getIntent().getBundleExtra("data");
-        user1 = bun.getString("user");
-        pass1 = bun.getString("pass");
-        phone1 = bun.getString("phone");
-    }
-
-@Override
-    public void onClick(View v) {
-        user2 = un.getText().toString();
-        pass2 = pw.getText().toString();
-        phone2 = ph.getText().toString();
-        if(user1.equals(user2) && pass1.equals(pass2) && phone1.equals(phone2))
-            Toast.makeText(getBaseContext(), "Login Successful", Toast.LENGTH_LONG).show();
-        else {
-            count++;
-            if(count == 3) {
-                Toast.makeText(getBaseContext(), "Failed login attempts", Toast.LENGTH_LONG).show();
-                b.setEnabled(false);
-            }
-            else Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-        }
-    }
+package com.example.myapplication;</br>
+import androidx.appcompat.app.AppCompatActivity;</br>
+import android.os.Bundle;</br>
+import android.view.View;</br>
+import android.widget.Button;</br>
+import android.widget.EditText;</br>
+import android.widget.Toast;</br>
+public class Login extends AppCompatActivity implements View.OnClickListener {</br>
+    int count = 0;</br>
+    EditText un, pw, ph;</br>
+    Button b;</br>
+    String user1, user2, pass1, pass2, phone1, phone2;</br>
+    @Override</br>
+    protected void onCreate(Bundle savedInstanceState) {</br>
+        super.onCreate(savedInstanceState);</br>
+        setContentView(R.layout.activity_login);</br>
+        un = (EditText) findViewById(R.id.un);</br>
+        pw = (EditText) findViewById(R.id.pw);</br>
+        ph = (EditText) findViewById(R.id.ph);</br></br>
+        b = (Button) findViewById(R.id.b);</br>
+        b.setOnClickListener(this);</br>
+        Bundle bun = getIntent().getBundleExtra("data");</br>
+        user1 = bun.getString("user");</br>
+        pass1 = bun.getString("pass");</br>
+        phone1 = bun.getString("phone");</br>
+    }</br>
+@Override</br>
+    public void onClick(View v) {</br>
+        user2 = un.getText().toString();</br>
+        pass2 = pw.getText().toString();</br>
+        phone2 = ph.getText().toString();</br>
+        if(user1.equals(user2) && pass1.equals(pass2) && phone1.equals(phone2))</br>
+            Toast.makeText(getBaseContext(), "Login Successful", Toast.LENGTH_LONG).show();</br>
+        else {</br>
+            count++;</br>
+            if(count == 3) {</br>
+                Toast.makeText(getBaseContext(), "Failed login attempts", Toast.LENGTH_LONG).show();</br>
+                b.setEnabled(false);</br>
+            }</br>
+            else Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();</br>
+        }</br>
+    }</br>
 }</br>
 
   </p>
 
  <p>
       4.wall</br>
-  package com.example.wallpaper;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.WallpaperManager;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import java.io.IOException;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button b;
-    boolean r;
-    int a[]=new int[]{R.drawable.s1,R.drawable.s2,R.drawable.s3};
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        b=(Button)findViewById(R.id.button);
-        b.setOnClickListener(this);
-    };
-
-    @Override
-    public void onClick(View view) {
-        if(!r)
+import androidx.appcompat.app.AppCompatActivity;</br>
+import android.app.WallpaperManager;</br>
+import android.graphics.BitmapFactory;</br>
+import android.os.Bundle;</br>
+import android.view.View;</br>
+import android.widget.Button;</br>
+import java.io.IOException;</br>
+import java.util.Random;</br>
+import java.util.Timer;</br>
+import java.util.TimerTask;</br>
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {</br>
+    Button b;</br>
+    boolean r;</br>
+    int a[]=new int[]{R.drawable.s1,R.drawable.s2,R.drawable.s3};</br>
+    @Override</br>
+    protected void onCreate(Bundle savedInstanceState) {</br>
+        super.onCreate(savedInstanceState);</br>
+        setContentView(R.layout.activity_main);</br>
+        b=(Button)findViewById(R.id.button);</br>
+        b.setOnClickListener(this);</br>
+    };</br>
+    @Override</br>
+    public void onClick(View view) {</br>
+        if(!r)</br>
         {
-            new Timer().schedule(new MyTimer(),0,100);
-            r=true;
+            new Timer().schedule(new MyTimer(),0,100);</br>
+            r=true;</br>
         }
-    }
+    }</br>
 
-    private class MyTimer extends TimerTask {
-        @Override
-        public void run() {
-            try {
-                WallpaperManager wp=WallpaperManager.getInstance(getBaseContext());
-                Random ran=new Random();
-                wp.setBitmap(BitmapFactory.decodeResource(getResources(),a[ran.nextInt(4)]));
-            }
-            catch (IOException e){
+    private class MyTimer extends TimerTask {</br>
+        @Override</br>
+        public void run() {</br>
+            try {</br>
+                WallpaperManager wp=WallpaperManager.getInstance(getBaseContext());</br>
+                Random ran=new Random();</br>
+                wp.setBitmap(BitmapFactory.decodeResource(getResources(),a[ran.nextInt(4)]));</br>
+            }</br>
+            catch (IOException e){</br>
 
             }
         }
-    }
+    }</br>
 }</br>
 
   </p>
@@ -363,61 +347,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
  <p>
       5.counter</br>
-  package com.example.counter;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-public class MainActivity extends AppCompatActivity {
-    Button start,stop, reset;
-    TextView text;
-    Handler customHandler=new Handler();
-    int i=1;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        start=(Button)findViewById(R.id.button);
-        stop=(Button)findViewById(R.id.button2);
-        reset=(Button)findViewById(R.id.button3);
-        text=(TextView) findViewById(R.id.textView);
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                customHandler.postDelayed(updateTimerThread,0);
-            }
-        });
-        stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                customHandler.removeCallbacks(updateTimerThread);
-            }
-        });
-        reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                customHandler.removeCallbacks(updateTimerThread);
-                i=0;
-                text.setText("");
-            }
-        });
-    }
-    private final Runnable updateTimerThread = new Runnable() {
-        @Override
-        public void run() {
-            text.setText(""+i);
-            customHandler.postDelayed(this,1000);
-            i++;
-        }
+ import androidx.appcompat.app.AppCompatActivity;</br>
+import android.os.Bundle;</br>
+import android.os.Handler;</br>
+import android.view.View;</br>
+import android.widget.Button;</br>
+import android.widget.TextView;</br>
+import org.w3c.dom.Text;</br>
+public class MainActivity extends AppCompatActivity {</br>
+    Button start,stop, reset;</br>
+    TextView text;</br>
+    Handler customHandler=new Handler();</br>
+    int i=1;</br>
+    @Override</br>
+    protected void onCreate(Bundle savedInstanceState) {</br>
+        super.onCreate(savedInstanceState);</br>
+        setContentView(R.layout.activity_main);</br>
+        start=(Button)findViewById(R.id.button);</br>
+        stop=(Button)findViewById(R.id.button2);</br>
+        reset=(Button)findViewById(R.id.button3);</br>
+        text=(TextView) findViewById(R.id.textView);</br>
+        start.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
+            public void onClick(View view) {</br>
+                customHandler.postDelayed(updateTimerThread,0);</br>
+            }</br>
+        });</br>
+        stop.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
+            public void onClick(View view) {</br>
+                customHandler.removeCallbacks(updateTimerThread);</br>
+            }</br>
+        });</br>
+        reset.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
+            public void onClick(View view) {</br>
+                customHandler.removeCallbacks(updateTimerThread);</br>
+                i=0;</br>
+                text.setText("");</br>
+            }</br>
+        });</br>
+    }</br>
+    private final Runnable updateTimerThread = new Runnable() {</br>
+        @Override</br>
+        public void run() {</br>
+            text.setText(""+i);</br>
+            customHandler.postDelayed(this,1000);</br>
+            i++;</br>
+        }</br>
     };
 }</br>
   </p>
 </body>
 </html>
+</br>
