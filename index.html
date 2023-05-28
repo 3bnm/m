@@ -2,208 +2,196 @@
   <body>
  <p>
       2.</br>
-  package com.example.nt;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.regex.Pattern;
-
-
-public class MainActivity extends AppCompatActivity {
-    Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bm, bd, be, bc, bdot;
-    EditText t;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        b0 = (Button) findViewById(R.id.b0);
-        b1 = (Button) findViewById(R.id.b1);
-        b2 = (Button) findViewById(R.id.b2);
-        b3 = (Button) findViewById(R.id.b3);
-        b4 = (Button) findViewById(R.id.b4);
-        b5 = (Button) findViewById(R.id.b5);
-        b6 = (Button) findViewById(R.id.b6);
-        b7 = (Button) findViewById(R.id.b7);
-        b8 = (Button) findViewById(R.id.b8);
-        b9 = (Button) findViewById(R.id.b9);
-        ba = (Button) findViewById(R.id.badd);
-        bs = (Button) findViewById(R.id.bsub);
-        bm = (Button) findViewById(R.id.bmul);
-        bd = (Button) findViewById(R.id.bdiv);
-        bc = (Button) findViewById(R.id.bc);
-        bdot = (Button) findViewById(R.id.bdot);
-        be = (Button) findViewById(R.id.beq);
-        t = (EditText) findViewById(R.id.editTextNumberDecimal);
-
-
-        b0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                t.append("0");
+  package com.example.nt;</br>
+import androidx.appcompat.app.AppCompatActivity;</br>
+import android.os.Bundle;</br>
+import android.view.View;</br>
+import android.widget.Button;</br>
+import android.widget.EditText;</br>
+import android.widget.TextView;</br>
+import android.widget.Toast;</br>
+import java.util.regex.Pattern;</br>
+public class MainActivity extends AppCompatActivity {</br>
+    Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bm, bd, be, bc, bdot;</br>
+    EditText t;</br>
+    @Override</br>
+    protected void onCreate(Bundle savedInstanceState) {</br>
+        super.onCreate(savedInstanceState);</br>
+        setContentView(R.layout.activity_main);</br>
+        b0 = (Button) findViewById(R.id.b0);</br>
+        b1 = (Button) findViewById(R.id.b1);</br>
+        b2 = (Button) findViewById(R.id.b2);</br>
+        b3 = (Button) findViewById(R.id.b3);</br>
+        b4 = (Button) findViewById(R.id.b4);</br>
+        b5 = (Button) findViewById(R.id.b5);</br>
+        b6 = (Button) findViewById(R.id.b6);</br>
+        b7 = (Button) findViewById(R.id.b7);</br>
+        b8 = (Button) findViewById(R.id.b8);</br>
+        b9 = (Button) findViewById(R.id.b9);</br>
+        ba = (Button) findViewById(R.id.badd);</br>
+        bs = (Button) findViewById(R.id.bsub);</br>
+        bm = (Button) findViewById(R.id.bmul);</br>
+        bd = (Button) findViewById(R.id.bdiv);</br>
+        bc = (Button) findViewById(R.id.bc);</br>
+        bdot = (Button) findViewById(R.id.bdot);</br>
+        be = (Button) findViewById(R.id.beq);</br>
+        t = (EditText) findViewById(R.id.editTextNumberDecimal);</br>
+        b0.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
+            public void onClick(View view) {</br>
+                t.append("0");</br>
             }
-        });
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        b1.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
-                t.append("1");
+                t.append("1");</br>
             }
-        });
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        });</br>
+        b2.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
+            public void onClick(View view) {</br>
                 t.append("2");
             }
-        });
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        b3.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append("3");
             }
-        });
+        });</br>
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t.append("4");
             }
         });
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
+        b5.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append("5");
             }
-        });
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        b6.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append("6");
             }
-        });
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        b7.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append("7");
             }
-        });
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        b8.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append("8");
             }
-        });
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        b9.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append("9");
             }
-        });
-        bdot.setOnClickListener(new View.OnClickListener() {
-            @Override
+        });</br>
+        bdot.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
             public void onClick(View view) {
                 t.append(".");
             }
-        });
+        });</br>
 
         ba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t.append("+");
             }
-        });
+        });</br>
         bs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t.append("-");
             }
-        });
+        });</br>
         bm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t.append("*");
             }
-        });
+        });</br>
         bd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t.append("/");
             }
-        });
-
+        });</br>
         bc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 t.setText("");
             }
+        });</br>
+        be.setOnClickListener(new View.OnClickListener() {</br>
+            @Override</br>
+            public void onClick(View view) {</br>
+                try {</br>
+                    String data = t.getText().toString();</br>
+                    if (data.contains("+")) {</br>
+                        String op[] = data.split(Pattern.quote("+"));</br>
+                        if (op.length == 2) {</br>
+                            Double op1 = Double.parseDouble(op[0]);</br>
+                            Double op2 = Double.parseDouble(op[1]);</br>
+                            //Double op3 = Double.parseDouble(op[2]);</br>
+                            t.setText(String.valueOf((op1 + op2)));</br>
+                        } else {</br>
+                            Invalidmsg("Invalid input");</br>
+                        }</br>
+                    }</br>
+                    if (data.contains("-")) {</br>
+                        String op[] = data.split("-");</br>
+                        if (op.length == 2) {</br>
+                            Double op1 = Double.parseDouble(op[0]);</br>
+                            Double op2 = Double.parseDouble(op[1]);</br>
+                            //Double op3 = Double.parseDouble(op[2]);</br>
+                            t.setText(String.valueOf((op1 - op2)));</br>
+                        } else {</br>
+                            Invalidmsg("Invalid input");</br>
+                        }
+                    }</br>
+                    if (data.contains("*")) {</br>
+                        String op[] = data.split(Pattern.quote("*"));</br>
+                        if (op.length == 2) {</br>
+                            Double op1 = Double.parseDouble(op[0]);</br>
+                            Double op2 = Double.parseDouble(op[1]);</br>
+                            //Double op3 = Double.parseDouble(op[2]);
+                            t.setText(String.valueOf(op1 * op2));</br>
+                        } else {</br>
+                            Invalidmsg("Invalid input");</br>
+                        }
+                    }</br>
+                    if (data.contains("/")) {</br>
+                        String op[] = data.split("/");</br>
+                        if (op.length == 2) {</br>
+                            Double op1 = Double.parseDouble(op[0]);</br>
+                            Double op2 = Double.parseDouble(op[1]);</br>
+                            //Double op3 = Double.parseDouble(op[2]);</br>
+                            t.setText(String.valueOf(op1 / op2));</br>
+                        } else {</br>
+                            Invalidmsg("Invalid input");</br>
+                        }</br>
+                    }</br>
+                } catch (Exception e) {</br>
+                    System.out.println("No");</br>
+                }</br>
+            }</br>
         });
+    }</br>
 
-        be.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    String data = t.getText().toString();
-                    if (data.contains("+")) {
-                        String op[] = data.split(Pattern.quote("+"));
-                        if (op.length == 2) {
-                            Double op1 = Double.parseDouble(op[0]);
-                            Double op2 = Double.parseDouble(op[1]);
-                            //Double op3 = Double.parseDouble(op[2]);
-                            t.setText(String.valueOf((op1 + op2)));
-                        } else {
-                            Invalidmsg("Invalid input");
-                        }
-                    }
-                    if (data.contains("-")) {
-                        String op[] = data.split("-");
-                        if (op.length == 2) {
-                            Double op1 = Double.parseDouble(op[0]);
-                            Double op2 = Double.parseDouble(op[1]);
-                            //Double op3 = Double.parseDouble(op[2]);
-                            t.setText(String.valueOf((op1 - op2)));
-                        } else {
-                            Invalidmsg("Invalid input");
-                        }
-                    }
-                    if (data.contains("*")) {
-                        String op[] = data.split(Pattern.quote("*"));
-                        if (op.length == 2) {
-                            Double op1 = Double.parseDouble(op[0]);
-                            Double op2 = Double.parseDouble(op[1]);
-                            //Double op3 = Double.parseDouble(op[2]);
-                            t.setText(String.valueOf(op1 * op2));
-                        } else {
-                            Invalidmsg("Invalid input");
-                        }
-                    }
-                    if (data.contains("/")) {
-                        String op[] = data.split("/");
-                        if (op.length == 2) {
-                            Double op1 = Double.parseDouble(op[0]);
-                            Double op2 = Double.parseDouble(op[1]);
-                            //Double op3 = Double.parseDouble(op[2]);
-                            t.setText(String.valueOf(op1 / op2));
-                        } else {
-                            Invalidmsg("Invalid input");
-                        }
-                    }
-                } catch (Exception e) {
-                    System.out.println("No");
-                }
-            }
-        });
-
-    }
-
-    void Invalidmsg(String msg) {
-        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
-    }
+    void Invalidmsg(String msg) {</br>
+        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();</br>
+    }</br>
   }</br>
 
   </p>
