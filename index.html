@@ -1,0 +1,435 @@
+<html>
+  <body>
+ <p>
+      2.</br>
+  package com.example.nt;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.regex.Pattern;
+
+
+public class MainActivity extends AppCompatActivity {
+    Button b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bm, bd, be, bc, bdot;
+    EditText t;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        b0 = (Button) findViewById(R.id.b0);
+        b1 = (Button) findViewById(R.id.b1);
+        b2 = (Button) findViewById(R.id.b2);
+        b3 = (Button) findViewById(R.id.b3);
+        b4 = (Button) findViewById(R.id.b4);
+        b5 = (Button) findViewById(R.id.b5);
+        b6 = (Button) findViewById(R.id.b6);
+        b7 = (Button) findViewById(R.id.b7);
+        b8 = (Button) findViewById(R.id.b8);
+        b9 = (Button) findViewById(R.id.b9);
+        ba = (Button) findViewById(R.id.badd);
+        bs = (Button) findViewById(R.id.bsub);
+        bm = (Button) findViewById(R.id.bmul);
+        bd = (Button) findViewById(R.id.bdiv);
+        bc = (Button) findViewById(R.id.bc);
+        bdot = (Button) findViewById(R.id.bdot);
+        be = (Button) findViewById(R.id.beq);
+        t = (EditText) findViewById(R.id.editTextNumberDecimal);
+
+
+        b0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("0");
+            }
+        });
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("1");
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("2");
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("3");
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("4");
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("5");
+            }
+        });
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("6");
+            }
+        });
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("7");
+            }
+        });
+        b8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("8");
+            }
+        });
+        b9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("9");
+            }
+        });
+        bdot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append(".");
+            }
+        });
+
+        ba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("+");
+            }
+        });
+        bs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("-");
+            }
+        });
+        bm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("*");
+            }
+        });
+        bd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.append("/");
+            }
+        });
+
+        bc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                t.setText("");
+            }
+        });
+
+        be.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String data = t.getText().toString();
+                    if (data.contains("+")) {
+                        String op[] = data.split(Pattern.quote("+"));
+                        if (op.length == 2) {
+                            Double op1 = Double.parseDouble(op[0]);
+                            Double op2 = Double.parseDouble(op[1]);
+                            //Double op3 = Double.parseDouble(op[2]);
+                            t.setText(String.valueOf((op1 + op2)));
+                        } else {
+                            Invalidmsg("Invalid input");
+                        }
+                    }
+                    if (data.contains("-")) {
+                        String op[] = data.split("-");
+                        if (op.length == 2) {
+                            Double op1 = Double.parseDouble(op[0]);
+                            Double op2 = Double.parseDouble(op[1]);
+                            //Double op3 = Double.parseDouble(op[2]);
+                            t.setText(String.valueOf((op1 - op2)));
+                        } else {
+                            Invalidmsg("Invalid input");
+                        }
+                    }
+                    if (data.contains("*")) {
+                        String op[] = data.split(Pattern.quote("*"));
+                        if (op.length == 2) {
+                            Double op1 = Double.parseDouble(op[0]);
+                            Double op2 = Double.parseDouble(op[1]);
+                            //Double op3 = Double.parseDouble(op[2]);
+                            t.setText(String.valueOf(op1 * op2));
+                        } else {
+                            Invalidmsg("Invalid input");
+                        }
+                    }
+                    if (data.contains("/")) {
+                        String op[] = data.split("/");
+                        if (op.length == 2) {
+                            Double op1 = Double.parseDouble(op[0]);
+                            Double op2 = Double.parseDouble(op[1]);
+                            //Double op3 = Double.parseDouble(op[2]);
+                            t.setText(String.valueOf(op1 / op2));
+                        } else {
+                            Invalidmsg("Invalid input");
+                        }
+                    }
+                } catch (Exception e) {
+                    System.out.println("No");
+                }
+            }
+        });
+
+    }
+
+    void Invalidmsg(String msg) {
+        Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+  }</br>
+
+  </p>
+
+ <p>
+      3.</br>
+Signup Java:-</br>
+
+  package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.regex.Pattern;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    String re1 = "(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@$!]{8,}";
+    String re2 = "\\d{10}";
+    EditText un, pw, ph;
+    Button b;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        un = (EditText) findViewById(R.id.un);
+        pw = (EditText) findViewById(R.id.pw);
+        ph = (EditText) findViewById(R.id.ph);
+        b = (Button) findViewById(R.id.b);
+        b.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String user = un.getText().toString();
+        String pass = pw.getText().toString();
+        String phone = ph.getText().toString();
+        if(!validate(re1, pass))
+            Toast.makeText(getBaseContext(), "Invalid password", Toast.LENGTH_LONG).show();
+        else if(!validate(re2, phone))
+            Toast.makeText(getBaseContext(), "Invalid phone no", Toast.LENGTH_LONG).show();
+        else {
+            Bundle bun = new Bundle();
+            bun.putString("user", user);
+            bun.putString("pass", pass);
+            bun.putString("phone", phone);
+            Toast.makeText(getBaseContext(), "Registration done", Toast.LENGTH_LONG).show();
+            Intent it = new Intent(this, Login.class);
+            it.putExtra("data", bun);
+            startActivity(it);
+        }
+    }
+    private static boolean validate(String re, String txt) {
+        return Pattern.compile(re).matcher(txt).matches();
+    }
+}</br>
+login</br>
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class Login extends AppCompatActivity implements View.OnClickListener {
+    int count = 0;
+    EditText un, pw, ph;
+    Button b;
+    String user1, user2, pass1, pass2, phone1, phone2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        un = (EditText) findViewById(R.id.un);
+        pw = (EditText) findViewById(R.id.pw);
+        ph = (EditText) findViewById(R.id.ph);
+        b = (Button) findViewById(R.id.b);
+        b.setOnClickListener(this);
+        Bundle bun = getIntent().getBundleExtra("data");
+        user1 = bun.getString("user");
+        pass1 = bun.getString("pass");
+        phone1 = bun.getString("phone");
+    }
+
+@Override
+    public void onClick(View v) {
+        user2 = un.getText().toString();
+        pass2 = pw.getText().toString();
+        phone2 = ph.getText().toString();
+        if(user1.equals(user2) && pass1.equals(pass2) && phone1.equals(phone2))
+            Toast.makeText(getBaseContext(), "Login Successful", Toast.LENGTH_LONG).show();
+        else {
+            count++;
+            if(count == 3) {
+                Toast.makeText(getBaseContext(), "Failed login attempts", Toast.LENGTH_LONG).show();
+                b.setEnabled(false);
+            }
+            else Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        }
+    }
+}</br>
+
+  </p>
+
+ <p>
+      4.wall</br>
+  package com.example.wallpaper;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.WallpaperManager;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import java.io.IOException;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    Button b;
+    boolean r;
+    int a[]=new int[]{R.drawable.s1,R.drawable.s2,R.drawable.s3};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        b=(Button)findViewById(R.id.button);
+        b.setOnClickListener(this);
+    };
+
+    @Override
+    public void onClick(View view) {
+        if(!r)
+        {
+            new Timer().schedule(new MyTimer(),0,100);
+            r=true;
+        }
+    }
+
+    private class MyTimer extends TimerTask {
+        @Override
+        public void run() {
+            try {
+                WallpaperManager wp=WallpaperManager.getInstance(getBaseContext());
+                Random ran=new Random();
+                wp.setBitmap(BitmapFactory.decodeResource(getResources(),a[ran.nextInt(4)]));
+            }
+            catch (IOException e){
+
+            }
+        }
+    }
+}</br>
+
+  </p>
+
+
+ <p>
+      5.counter</br>
+  package com.example.counter;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+public class MainActivity extends AppCompatActivity {
+    Button start,stop, reset;
+    TextView text;
+    Handler customHandler=new Handler();
+    int i=1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        start=(Button)findViewById(R.id.button);
+        stop=(Button)findViewById(R.id.button2);
+        reset=(Button)findViewById(R.id.button3);
+        text=(TextView) findViewById(R.id.textView);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                customHandler.postDelayed(updateTimerThread,0);
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                customHandler.removeCallbacks(updateTimerThread);
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                customHandler.removeCallbacks(updateTimerThread);
+                i=0;
+                text.setText("");
+            }
+        });
+    }
+    private final Runnable updateTimerThread = new Runnable() {
+        @Override
+        public void run() {
+            text.setText(""+i);
+            customHandler.postDelayed(this,1000);
+            i++;
+        }
+    };
+}</br>
+  </p>
+</body>
+</html>
